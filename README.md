@@ -30,7 +30,8 @@
 
 ## Prerequisites
 
-- Node.js version 18 or higher.
+- Node.js version 18 or higher
+- A VitePress project
 - A package manager: e.g. npm, pnpm, ...
 
 ## Installation
@@ -46,30 +47,36 @@ $ npm install -D @ogs-gmbh/vitepress-plugin-sidebar
   
   Using yarn:
   ```sh
-  $ pnpm add @ogs-gmbh/markdown
+  $ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
   ```
   
   Using pnpm:
   ```sh
-  $ pnpm add @ogs-gmbh/markdown
+  $ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
   ```
   
   Using bun:
   ```sh
-  $ bun add @ogs-gmbh/markdown
+  $ bun add -D @ogs-gmbh/vitepress-plugin-sidebar
   ```
 
 </details>
 
-## Building
+## Usage
 
-Markdown can now be easily build. But make sure to import it first with your Markdown elements.
+Now, just import and use the `sidebarPlugin` inside your [VitePress Site Config](https://vitepress.dev/reference/site-config).
 
 ```ts
-import { define } from "@ogs-gmbh/markdown";
-```
+import { sidebarPlugin } from "@ogs-gmbh/vitepress-plugin-sidebar";
 
-Now you can start adding Markdown elements. Each element has an example. Just check it out at [ogs-gmbh.github.io/markdown/reference](https://ogs-gmbh.github.io/markdown/reference/).
+export default {
+  themeConfig: {
+    sidebar: sidebarPlugin({
+      path: "./dist/vitepress-content"
+    })
+  }
+}
+```
 
 ## License
 
@@ -114,3 +121,4 @@ This project is a trademark of OGS Gesellschaft für Datenverarbeitung und Syste
 <p>Gesellschaft für Datenverarbeitung und Systemberatung mbH</p>
 
 [Imprint](https://www.ogs.de/en/imprint/) | [Contact](https://www.ogs.de/en/contact/) | [Careers](https://www.ogs.de/en/about-ogs/#Careers)
+
