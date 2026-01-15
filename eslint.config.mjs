@@ -1,8 +1,8 @@
 import {
   ESLINT_JSON_RULES,
   ESLINT_MARKDOWN_RULES,
-  JS_RULES_PRESET,
-  TS_RULES_PRESET
+  NODE_JS_RULES_PRESET,
+  NODE_TS_RULES_PRESET
 } from "@ogs-gmbh/linter";
 import eslintJson from "@eslint/json";
 import eslintMarkdown from "@eslint/markdown";
@@ -12,6 +12,7 @@ import stylisticPlus from "@stylistic/eslint-plugin-plus";
 import stylisticTs from "@stylistic/eslint-plugin-ts";
 import tseslint from "typescript-eslint";
 import unicorn from "eslint-plugin-unicorn";
+import security from "eslint-plugin-security";
 import { defineConfig } from "eslint/config";
 
 export default defineConfig(
@@ -22,6 +23,7 @@ export default defineConfig(
       "@stylistic/js": stylisticJs,
       "@stylistic/ts": stylisticTs,
       "@stylistic/plus": stylisticPlus,
+      "@security": security,
       "@markdown": eslintMarkdown,
       "@json": eslintJson
     }
@@ -55,11 +57,11 @@ export default defineConfig(
         tsconfigRootDir: import.meta.dirname
       }
     },
-    rules: TS_RULES_PRESET
+    rules: NODE_TS_RULES_PRESET
   },
   {
     files: [ "**/*.js", "**/*.mjs", "**/*.cjs" ],
-    rules: JS_RULES_PRESET
+    rules: NODE_JS_RULES_PRESET
   },
   {
     files: [ "**/*.md" ],

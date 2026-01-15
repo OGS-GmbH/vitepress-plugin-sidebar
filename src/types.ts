@@ -6,12 +6,23 @@ type Index = {
 
 type TransformFn = (sidebarItem: SidebarItem) => SidebarItem;
 
+type NormalizeTextFn = (value: string) => string;
+
+type Collapsible = {
+  enabled?: boolean;
+  collapsed?: boolean;
+};
+
 type Config = {
   path: string;
   cwd?: string;
-  collapsed?: boolean;
+  collapsible?: Collapsible;
   index?: Index[];
   baseHref?: string;
+  normalizeLinkNames: boolean;
+  normalizeLinkNamesFn?: NormalizeTextFn;
+  normalizeDirNames: boolean;
+  normalizeDirNamesFn?: NormalizeTextFn;
   transformFn?: TransformFn;
 };
 
@@ -58,5 +69,7 @@ export type {
   Index,
   Config,
   TransformFn,
+  NormalizeTextFn,
+  Collapsible,
   SidebarItem
 };
