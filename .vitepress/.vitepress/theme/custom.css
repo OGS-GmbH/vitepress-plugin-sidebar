@@ -1,0 +1,12 @@
+:root {
+  --vp-sidebar-width: 380px !important;
+}
+
+html:not(.dark) .is-home .VPHomeFeatures .icon svg {
+  fill: #000000;
+}
+
+.logo {
+  width: 80px !important;
+  height: auto !important;
+}
