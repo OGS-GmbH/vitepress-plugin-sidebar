@@ -1,5 +1,6 @@
 ---
 layout: home
+isHome: true
 
 hero:
   text: Generate your Sidebar

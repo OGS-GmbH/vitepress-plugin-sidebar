@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons"
 import { sidebarPlugin } from  "../../src/plugin";
+import packageJson from "../../package.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -9,6 +10,9 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     externalLinkIcon: true,
+    search: {
+      provider: "local"
+    },
     logo: {
       light: "https://raw.githubusercontent.com/OGS-GmbH/.github/refs/tags/v1.0.0/docs/assets/logo/dark.svg",
       dark: "https://raw.githubusercontent.com/OGS-GmbH/.github/refs/tags/v1.0.0/docs/assets/logo/light.svg",
@@ -21,7 +25,10 @@ export default defineConfig({
     nav: [
       { text: "Guide", link: "/guide" },
       { text: "Reference", link: "/reference" },
-      { text: "GitHub", link: "https://github.com/OGS-GmbH/vitepress-plugin-sidebar" }
+      { text: packageJson.version, items: [
+        { text: "Changelog", link: "https://github.com/OGS-GmbH/vitepress-plugin-sidebar/blob/main/CHANGELOG.md" },
+        { text: "Contributing", link: "http://localhost:5173/vitepress-plugin-sidebar/other/contributing" },
+      ] }
     ],
     socialLinks: [
       { icon: "github", link: "https://github.com/OGS-GmbH" },

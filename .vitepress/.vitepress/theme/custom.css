@@ -7,6 +7,10 @@
   --vp-button-brand-hover-bg: #0C333C !important;
 }
 
+.VPButton.medium {
+  border-radius: 8px !important;
+}
+
 .logo {
   width: 80px !important;
   height: auto !important;
