@@ -4,7 +4,7 @@
 
 *A VitePress plugin that automatically generates sidebar structures by statically analyzing the documentation file system and metadata.* 
 
-![Preview](https://raw.githubusercontent.com/OGS-GmbH/vitepress-plugin-sidebar/refs/heads/feat/init/docs/preview.avif?token=GHSAT0AAAAAADSPIS2B2A65TFRZYCTEPLEU2LJBHMQ)
+![Preview](./docs/preview.avif)
 
 <a href="./LICENSE" target="_blank"><img src="https://img.shields.io/github/license/OGS-GmbH/vitepress-plugin-sidebar?color=0f434e&logo=hackthebox&logoColor=000000&labelColor=ffffff" /></a>
 <a href="https://github.com/OGS-GmbH/vitepress-plugin-sidebar/actions/workflows/main-deploy.yml" target="_blank"><img src="https://img.shields.io/github/actions/workflow/status/OGS-GmbH/markdown/main-deploy.yml?color=0f434e&logo=rocket&logoColor=000000&labelColor=ffffff" /></a>
@@ -121,4 +121,5 @@ This project is a trademark of OGS Gesellschaft für Datenverarbeitung und Syste
 <p>Gesellschaft für Datenverarbeitung und Systemberatung mbH</p>
 
 [Imprint](https://www.ogs.de/en/imprint/) | [Contact](https://www.ogs.de/en/contact/) | [Careers](https://www.ogs.de/en/about-ogs/#Careers)
+
 
