@@ -9,6 +9,17 @@ import { normalizeDirNames, normalizeLinkNames } from "../normalize";
 const MD_EXTENSION: string = ".md";
 const INDEX_FILENAME: string = `index${ MD_EXTENSION }`;
 
+/**
+ * Filesystem mode
+ * @category Modes
+ * @param path - Path to start reading the filesystem from
+ * @param rootPath - Root path for relative links
+ * @param config - Configuration to use
+ * @returns A generated `SidebarItem` or, if nothing could be resolved, `undefined`
+ *
+ * @since 1.0.0
+ * @author Simon Kovtyk
+ */
 function fsMode (
   path: string,
   rootPath: string,

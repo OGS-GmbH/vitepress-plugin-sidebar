@@ -40,12 +40,12 @@
   "type": "module",
   "scripts": {
     "ci:build:main:production": "node .esbuild/build.mjs",
-    "ci:docs:extract:typedoc": "typedoc && bash ./.vitepress/scripts/prepare-typedoc.sh",
-    "ci:docs:main:vitepress": "bash ./.vitepress/scripts/prepare-src.sh && vitepress build .vitepress",
+    "ci:docs:extract:typedoc": "typedoc",
+    "ci:docs:main:vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress build .vitepress",
     "ci:pr:commitlint:main:commitlint": "commitlint",
     "ci:pr:lint:main:eslint": "eslint .",
     "prepare": "husky",
-    "vitepress": "bash ./.vitepress/scripts/prepare-src.sh && vitepress dev .vitepress",
+    "vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress dev .vitepress",
     "vitepress:preview": "vitepress preview .vitepress"
   },
   "devDependencies": {
@@ -78,10 +78,9 @@
     "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.53.0",
-    "typedoc": "^0.28.14",
-    "typedoc-plugin-markdown": "^4.9.0",
     "vitepress": "^1",
-    "vitepress-plugin-group-icons": "^1.6.5"
+    "vitepress-plugin-group-icons": "^1.6.5",
+    "sass": "^1"
   },
   "sideEffects": false,
   "publishConfig": {

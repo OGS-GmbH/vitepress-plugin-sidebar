@@ -13,9 +13,6 @@
 - **File System–Based Analysis**\
   Derives the sidebar structure directly from the documentation directory hierarchy.
 
-- **Deterministic Sidebar Generation**\
-  Produces stable and reproducible navigation trees across builds.
-
 - **Zero-Configuration Setup**\
   Eliminates the need for manual sidebar definitions in VitePress config files.
 
@@ -24,9 +21,6 @@
 
 - **Static Build-Time Execution**\
   Performs all computations at build time with no runtime overhead.
-
-- **VitePress-Compatible Output**\
-  Generates sidebar data fully aligned with standard VitePress conventions.
 
 ## Prerequisites
 
@@ -118,8 +112,6 @@ This project is a trademark of OGS Gesellschaft für Datenverarbeitung und Syste
   </picture>
 </a>
 
-<p>Gesellschaft für Datenverarbeitung und Systemberatung mbH</p>
+Gesellschaft für Datenverarbeitung und Systemberatung mbH
 
 [Imprint](https://www.ogs.de/en/imprint/) | [Contact](https://www.ogs.de/en/contact/) | [Careers](https://www.ogs.de/en/about-ogs/#Careers)
-
-

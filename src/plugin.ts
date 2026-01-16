@@ -4,6 +4,15 @@ import { getRootPath } from "./path";
 import { Config, SidebarItem } from "./types";
 import process from "node:process";
 
+/**
+ * Sidebar plugin for VitePress
+ * @param config - Configuration to use
+ * @returns A generated `SidebarItem`
+ * @category Plugin
+ *
+ * @since 1.0.0
+ * @author Simon Kovtyk
+ */
 function sidebarPlugin (config: Config): SidebarItem {
   const rootPath: string = getRootPath(config);
 

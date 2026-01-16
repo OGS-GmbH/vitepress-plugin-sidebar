@@ -1,10 +1,13 @@
+@use "sass:map";
+@use "./palettes" as palettes;
+
 :root {
   --vp-sidebar-width: 380px !important;
   --vp-c-gutter: var(--vp-c-divider) !important;
-  --vp-c-brand-1: #67A6B3 !important;
-  --vp-c-brand-2: #B9D6DC !important;
-  --vp-button-brand-bg: #145765 !important;
-  --vp-button-brand-hover-bg: #0C333C !important;
+  --vp-c-brand-1: #{map.get(palettes.$petrol-palette, 80)} !important;
+  --vp-c-brand-2: #{map.get(palettes.$petrol-palette, 95)} !important;
+  --vp-button-brand-bg: #{map.get(palettes.$petrol-palette, 50)} !important;
+  --vp-button-brand-hover-bg: #{map.get(palettes.$petrol-palette, 30)} !important;
 }
 
 .logo {
@@ -22,5 +25,3 @@
   width: 24px !important;
   height: 24px !important;
 }
-
-/*# sourceMappingURL=custom.css.map */
