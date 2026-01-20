@@ -1,31 +1,44 @@
 import { pathExists } from "./fs";
-import { getAnalyzePath } from "./path";
-import { parseSidebarItem } from "./sidebar";
+import { fsMode } from "./modes/fs";
+import { getRootPath } from "./path";
 import { Config, SidebarItem } from "./types";
 import process from "node:process";
 
+/**
+ * Sidebar plugin for VitePress
+ * @param config - Configuration to use
+ * @returns A generated `SidebarItem`
+ * @category Plugin
+ *
+ * @since 1.0.0
+ * @author Simon Kovtyk
+ */
 function sidebarPlugin (config: Config): SidebarItem {
-  const analyzePath: string = getAnalyzePath(config);
+  const rootPath: string = getRootPath(config);
 
-  if (!pathExists(analyzePath)) {
-    process.stderr.write(`Error: The path "${ analyzePath }" does not exist.\n`);
+  if (!pathExists(rootPath)) {
+    process.stderr.write(`Error: The path "${ rootPath }" does not exist.\n`);
     /* eslint-disable-next-line @unicorn/no-process-exit */
     process.exit(1);
   }
 
-  const sidebarItem: SidebarItem | undefined = parseSidebarItem(analyzePath, analyzePath, config);
+  const sidebarItem: SidebarItem | undefined = fsMode(
+    rootPath,
+    rootPath,
+    config
+  );
 
   if (!sidebarItem) {
-    process.stderr.write(`Error: The path "${ analyzePath }" has not a valid type or contains no markdown files.\n`);
+    process.stderr.write(`Error: The path "${ rootPath }" has not a valid type or contains no markdown files.\n`);
     /* eslint-disable-next-line @unicorn/no-process-exit */
     process.exit(1);
   }
 
-  const maybeTransformed: SidebarItem = config.transformFn
+  const maybeTransformedSidebarItem: SidebarItem = config.transformFn
     ? config.transformFn(sidebarItem)
     : sidebarItem;
 
-  return maybeTransformed;
+  return maybeTransformedSidebarItem;
 }
 
 export {

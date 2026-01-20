@@ -1,7 +1,31 @@
 {
   "name": "@ogs-gmbh/vitepress-plugin-sidebar",
   "version": "0.0.0",
-  "description": "",
+  "description": "A VitePress plugin that automatically generates sidebar structures by statically analyzing the documentation file system and metadata.",
+  "keywords": [
+    "vitepress",
+    "vitepress-plugin",
+    "sidebar",
+    "autogenerate",
+    "navigation",
+    "docs",
+    "documentation",
+    "plugin",
+    "vite",
+    "static-site",
+    "markdown"
+  ],
+  "homepage": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar",
+  "bugs": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar/issues",
+  "license": "MIT",
+  "author": "OGS GmbH",
+  "contributors": [
+    {
+      "name": "Simon Kovtyk",
+      "email": "simon@kovtyk.com",
+      "url": "https://simonkov.dev"
+    }
+  ],
   "exports": {
     "types": "./public-api.d.ts",
     "import": "./public-api.mjs",
@@ -9,13 +33,21 @@
   },
   "main": "./public-api.mjs",
   "types": "./public-api.d.ts",
-  "scripts": {
-    "ci:build:main:production": "node .esbuild/build.mjs"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar"
   },
   "type": "module",
-  "keywords": [],
-  "author": "OGS GmbH",
-  "license": "MIT",
+  "scripts": {
+    "ci:build:main:production": "node .esbuild/build.mjs",
+    "ci:docs:extract:typedoc": "typedoc",
+    "ci:docs:main:vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress build .vitepress",
+    "ci:pr:commitlint:main:commitlint": "commitlint",
+    "ci:pr:lint:main:eslint": "eslint .",
+    "prepare": "husky",
+    "vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress dev .vitepress",
+    "vitepress:preview": "vitepress preview .vitepress"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
@@ -26,6 +58,7 @@
     "@stylistic/eslint-plugin-js": "^2.13.0",
     "@stylistic/eslint-plugin-plus": "^2.13.0",
     "@stylistic/eslint-plugin-ts": "^2.13.0",
+    "eslint-plugin-security": "^3",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^25.0.8",
     "commitizen": "^4.3.1",
@@ -44,6 +77,13 @@
     "typedoc": "^0.28.16",
     "typedoc-plugin-markdown": "^4.9.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.53.0"
+    "typescript-eslint": "^8.53.0",
+    "vitepress": "^1",
+    "vitepress-plugin-group-icons": "^1.6.5",
+    "@ogs-gmbh/vitepress-theme": "^1"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "directory": "dist/main"
   }
 }
