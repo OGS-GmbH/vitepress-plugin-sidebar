@@ -12,4 +12,3 @@ mkdir -p ./dist/vitepress-src/reference
 cp -r ./dist/typedoc/* ./dist/vitepress-src/reference
 
 cp -r ./.vitepress/docs/* ./dist/vitepress-src
-cp CODE_OF_CONDUCT.md ./dist/vitepress-src/other/code-of-conduct.md
