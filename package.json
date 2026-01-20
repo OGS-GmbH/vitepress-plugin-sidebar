@@ -1,6 +1,6 @@
 {
   "name": "@ogs-gmbh/vitepress-plugin-sidebar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A VitePress plugin that automatically generates sidebar structures by statically analyzing the documentation file system and metadata.",
   "keywords": [
     "vitepress",

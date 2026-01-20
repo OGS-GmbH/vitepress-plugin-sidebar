@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.1...v1.0.2) (2026-01-20)
+
+
+### Bug Fixes
+
+* **typedoc:** add frontmatter ([70720af](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/commit/70720af907440fe81ede44e9962c257709087627))
+
 ## [1.0.1](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.0...v1.0.1) (2026-01-20)
 
 
