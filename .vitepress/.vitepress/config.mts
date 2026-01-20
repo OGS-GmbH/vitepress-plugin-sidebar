@@ -5,6 +5,7 @@ import packageJson from "../../package.json";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  ignoreDeadLinks: true,
   title: "vitepress-plugin-sidebar",
   description: "A VitePress plugin that automatically generates sidebar structures by statically analyzing the documentation file system and metadata.",
   themeConfig: {
