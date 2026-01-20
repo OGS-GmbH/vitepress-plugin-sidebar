@@ -2,9 +2,6 @@
 
 echo "Preparing VitePress source..."
 
-# Theme
-sass ./.vitepress/.vitepress/theme/custom.scss ./.vitepress/.vitepress/theme/custom.css
-
 # Filesystem
 mkdir -p ./dist/vitepress-src
 
