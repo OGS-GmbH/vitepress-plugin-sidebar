@@ -22,6 +22,13 @@
 - **Static Build-Time Execution**\
   Performs all computations at build time with no runtime overhead.
 
+## Getting Started
+
+> [!IMPORTANT]
+> We're offering an extensive API-Reference covered with in-depth usage examples of this project.
+
+To get a starting point, simply refer to our documentation at [ogs-gmbh.github.io/vitepress-plugin-sidebar](https://ogs-gmbh.github.io/vitepress-plugin-sidebar).
+
 ## Prerequisites
 
 - Node.js version 18 or higher
