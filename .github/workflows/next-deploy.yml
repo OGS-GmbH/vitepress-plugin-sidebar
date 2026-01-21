@@ -1,4 +1,4 @@
-name: Next Deploy
+name: next deploy
 on:
   push:
     branches:

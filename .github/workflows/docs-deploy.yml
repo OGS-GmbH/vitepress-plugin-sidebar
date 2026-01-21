@@ -1,0 +1,23 @@
+name: docs deploy
+on:
+  workflow_dispatch:
+
+permissions:
+  pages: write
+
+jobs:
+  call-npm-package-docs-detect:
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-detect.yml
+
+  call-npm-package-docs-checks:
+    needs: call-npm-package-docs-detect
+    if: ${{ needs.call-npm-package-docs-detect.outputs.detected == 'true' }}
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-checks.yml
+    secrets:
+      GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
+
+  call-npm-package-docs:
+    needs: call-npm-package-docs-checks
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs.yml@main
+    secrets:
+      GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}

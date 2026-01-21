@@ -29,7 +29,7 @@ export default defineConfig({
       { text: packageJson.version, items: [
         { text: "Repository", link: "https://github.com/OGS-GmbH/vitepress-plugin-sidebar" },
         { text: "Changelog", link: "https://github.com/OGS-GmbH/vitepress-plugin-sidebar/blob/main/CHANGELOG.md" },
-        { text: "Contributing", link: "http://localhost:5173/vitepress-plugin-sidebar/other/contributing" },
+        { text: "Contributing", link: "/other/contributing" },
       ] }
     ],
     socialLinks: [
