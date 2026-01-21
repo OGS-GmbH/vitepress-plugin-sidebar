@@ -4,6 +4,7 @@ on:
 
 permissions:
   pages: write
+  id-token: write
 
 jobs:
   call-npm-package-docs-detect:
