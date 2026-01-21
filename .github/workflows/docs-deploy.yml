@@ -7,12 +7,12 @@ permissions:
 
 jobs:
   call-npm-package-docs-detect:
-    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-detect.yml
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-detect.yml@main
 
   call-npm-package-docs-checks:
     needs: call-npm-package-docs-detect
     if: ${{ needs.call-npm-package-docs-detect.outputs.detected == 'true' }}
-    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-checks.yml
+    uses: OGS-GmbH/reusable-github-actions/.github/workflows/npm-package-docs-checks.yml@main
     secrets:
       GH_DEPLOY_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
 
