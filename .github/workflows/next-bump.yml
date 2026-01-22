@@ -1,4 +1,4 @@
-name: next deploy
+name: next bump
 on:
   workflow_dispatch:
 
