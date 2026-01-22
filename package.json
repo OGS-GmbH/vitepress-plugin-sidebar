@@ -15,7 +15,7 @@
     "static-site",
     "markdown"
   ],
-  "homepage": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar",
+  "homepage": "https://ogs-gmbh.github.io/vitepress-plugin-sidebar/",
   "bugs": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar/issues",
   "license": "MIT",
   "author": "OGS GmbH",
@@ -33,10 +33,7 @@
   },
   "main": "./public-api.mjs",
   "types": "./public-api.d.ts",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/OGS-GmbH/vitepress-plugin-sidebar"
-  },
+  "repository": "github:OGS-GmbH/vitepress-plugin-sidebar",
   "type": "module",
   "scripts": {
     "ci:build:main:production": "node .esbuild/build.mjs",
