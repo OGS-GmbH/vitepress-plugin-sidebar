@@ -5,7 +5,7 @@ next: false
 
 # Getting started
 
-### Installation
+## Installation
 
 - Node.js version 18 or higher
 - A VitePress project
@@ -31,11 +31,11 @@ $ bun add -D @ogs-gmbh/vitepress-plugin-sidebar
 
 :::
 
-### Usage
+## Usage
 
 Now, just import and use the `sidebarPlugin` inside your [VitePress Site Config](https://vitepress.dev/reference/site-config).
 
-You can use the reference of [`Config`]() to get a better understanding of the configuration.
+You can use the reference of [`Config`](/reference/Configuration/Config) to get a better understanding of the configuration.
 
 ```ts [index.ts]
 import { sidebarPlugin } from "@ogs-gmbh/vitepress-plugin-sidebar";
