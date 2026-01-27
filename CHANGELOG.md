@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.2...v1.0.3) (2026-01-27)
+
+
+### Bug Fixes
+
+* various style & bug fixes after linter upgrade ([3ea3854](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/commit/3ea3854becaffe57007875ffaf0741e78c034a1c))
+
 ## [1.0.2](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.1...v1.0.2) (2026-01-20)
 
 
