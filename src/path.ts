@@ -3,6 +3,8 @@ import process from "node:process";
 import { Config } from "./types";
 
 const DIR_UP: string = "..";
+const MD_EXTENSION: string = ".md";
+const INDEX_FILENAME: string = `index${ MD_EXTENSION }`;
 
 function getCwd (config: Config): string {
   return config.cwd ?? process.cwd();
@@ -27,6 +29,8 @@ function subtractPath (basePath: string, fullPath: string): string | null {
 
 export {
   DIR_UP,
+  MD_EXTENSION,
+  INDEX_FILENAME,
   getCwd,
   getRootPath,
   subtractPath

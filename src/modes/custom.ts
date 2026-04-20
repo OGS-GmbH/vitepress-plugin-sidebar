@@ -1,27 +1,28 @@
 import { Config, Index, SidebarItem } from "../types";
 import fs from "node:fs";
 import * as nodePath from "node:path";
+import matter from "gray-matter";
+import { normalizeDirNames } from "../normalize";
+import { getCollapsedState } from "../config";
 import { DIR_UP, INDEX_FILENAME, MD_EXTENSION, subtractPath } from "../path";
 import { pathExists } from "../fs";
-import { getCollapsedState } from "../config";
-import { normalizeDirNames, normalizeLinkNames } from "../normalize";
 
-/**
- * Filesystem mode
- * @category Modes
- * @param path - Path to start reading the filesystem from
- * @param rootPath - Root path for relative links
- * @param config - Configuration to use
- * @returns A generated `SidebarItem` or, if nothing could be resolved, `undefined`
- *
- * @since 1.0.0
- * @author Simon Kovtyk
- */
-function fsMode (
+type FrontmatterData = Partial<{
+  sidebarTitle: string;
+  sidebarIndex: number;
+  sidebarHide: boolean;
+}>
+
+type ManualModeReturn = {
+  item: SidebarItem,
+  at?: number
+};
+
+function manualMode (
   path: string,
   rootPath: string,
   config: Config
-): SidebarItem | undefined {
+): ManualModeReturn | undefined {
   /* eslint-disable-next-line @security/detect-non-literal-fs-filename */
   const stats: fs.Stats = fs.statSync(path);
 
@@ -53,35 +54,53 @@ function fsMode (
       );
     }
 
+    let items = [];
+
     /* eslint-disable-next-line @security/detect-non-literal-fs-filename */
     for (const item of fs.readdirSync(path)) {
       const innerSidebarItemPath: string = nodePath.join(path, item);
-      const innerSidebarItem: SidebarItem | undefined = fsMode(
+      const innerFileReturn: ManualModeReturn | undefined = manualMode(
         innerSidebarItemPath,
         rootPath,
         config
       );
 
-      if (!innerSidebarItem)
+      console.log(innerFileReturn);
+
+      if (!innerFileReturn)
         continue;
 
-      sidebarItem.items = sidebarItem.items
-        ? [ ...sidebarItem.items, innerSidebarItem ]
-        : [ innerSidebarItem ];
+      if (!innerFileReturn.at) {
+        items.push(innerFileReturn.item);
+        continue;
+      }
+
+      items[innerFileReturn.at] = innerFileReturn.item;
     }
 
-    return sidebarItem;
+    sidebarItem.items = items;
+
+    return {
+      item: sidebarItem
+    };
   }
 
   if (nodePath.extname(path) !== MD_EXTENSION || nodePath.basename(path) === INDEX_FILENAME)
     return;
 
-  const filename: string = nodePath.basename(path, MD_EXTENSION);
-  /* eslint-disable-next-line @tseslint/no-non-null-assertion */
-  const relativeLink: string = subtractPath(nodePath.join(rootPath, DIR_UP), path)!;
+  const content = fs.readFileSync(path, {
+    encoding: "utf-8"
+  });
+  const parsedContent = matter(content);
+  const { sidebarHide, sidebarIndex, sidebarTitle } = parsedContent.data as FrontmatterData;
   const foundIndex: Index | undefined = config.index?.find((index: Index): boolean => index.path === relativeLink);
-  const sidebarItem: SidebarItem = {
-    text: normalizeLinkNames(filename, config),
+
+  if (sidebarHide)
+    return;
+
+  const relativeLink: string = subtractPath(nodePath.join(rootPath, DIR_UP), path)!;
+  let sidebarItem: SidebarItem = {
+    text: sidebarTitle,
     link: config.baseHref
       ? nodePath.join(
         config.baseHref,
@@ -94,15 +113,18 @@ function fsMode (
     if (foundIndex.hide)
       return;
 
-    return {
+    sidebarItem = {
       ...sidebarItem,
       ...foundIndex.item
     };
   }
 
-  return sidebarItem;
+  return {
+    item: sidebarItem,
+    at: sidebarIndex
+  };
 }
 
 export {
-  fsMode
-};
+  manualMode
+}

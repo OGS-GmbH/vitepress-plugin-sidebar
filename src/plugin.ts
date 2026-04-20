@@ -1,4 +1,5 @@
 import { pathExists } from "./fs";
+import { manualMode } from "./modes/custom";
 import { fsMode } from "./modes/fs";
 import { getRootPath } from "./path";
 import { Config, SidebarItem } from "./types";
@@ -22,11 +23,28 @@ function sidebarPlugin (config: Config): SidebarItem {
     process.exit(1);
   }
 
-  const sidebarItem: SidebarItem | undefined = fsMode(
-    rootPath,
-    rootPath,
-    config
-  );
+  let sidebarItem: SidebarItem | undefined;
+
+  switch (config.mode) {
+    case "manual": {
+      sidebarItem = manualMode(
+        rootPath,
+        rootPath,
+        config
+      )?.item;
+      break;
+    }
+
+    case "fs":
+    default: {
+      sidebarItem = fsMode(
+        rootPath,
+        rootPath,
+        config
+      );
+      break;
+    }
+  }
 
   if (!sidebarItem) {
     process.stderr.write(`Error: The path "${ rootPath }" has not a valid type or contains no markdown files.\n`);
