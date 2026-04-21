@@ -14,7 +14,7 @@ next: false
 ::: code-group
 
 ```sh [npm]
-$ npm install -D @ogs-gmbh/vitepress-plugin-sidebar
+$ npm add -D @ogs-gmbh/vitepress-plugin-sidebar
 ```
 
 ```sh [pnpm]

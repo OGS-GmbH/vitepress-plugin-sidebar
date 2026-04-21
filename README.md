@@ -40,33 +40,38 @@ To get a starting point, simply refer to our documentation at [ogs-gmbh.github.i
 Using npm:
 
 ```sh
-$ npm install -D @ogs-gmbh/vitepress-plugin-sidebar
+$ npm add -D @ogs-gmbh/vitepress-plugin-sidebar
 ```
 
 <details>
-  <summary>Using a different package managers?</summary>
+  <summary>Using a different package manager?</summary>
   <br/>
-  
-  Using yarn:
-  ```sh
-  $ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
-  ```
-  
-  Using pnpm:
-  ```sh
-  $ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
-  ```
-  
-  Using bun:
-  ```sh
-  $ bun add -D @ogs-gmbh/vitepress-plugin-sidebar
-  ```
+
+Using yarn:
+
+```sh
+$ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
+```
+
+Using pnpm:
+
+```sh
+$ pnpm add -D @ogs-gmbh/vitepress-plugin-sidebar
+```
+
+Using bun:
+
+```sh
+$ bun add -D @ogs-gmbh/vitepress-plugin-sidebar
+```
 
 </details>
 
 ## Usage
 
-Now, just import and use the `sidebarPlugin` inside your [VitePress Site Config](https://vitepress.dev/reference/site-config).
+Now, just import and use the [`sidebarPlugin`](https://ogs-gmbh.github.io/vitepress-plugin-sidebar/reference/Plugin/sidebarPlugin) inside your [VitePress Site Config](https://vitepress.dev/reference/site-config).
+
+You can use the reference of [`Config`](https://ogs-gmbh.github.io/vitepress-plugin-sidebar/reference/Configuration/Config) to get a better understanding of the configuration. Keep in mind, that the [filesystem mode](https://ogs-gmbh.github.io/vitepress-plugin-sidebar/guide/filesystem-mode) is the default, if no other mode is specified.
 
 ```ts
 import { sidebarPlugin } from "@ogs-gmbh/vitepress-plugin-sidebar";

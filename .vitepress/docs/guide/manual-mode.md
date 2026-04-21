@@ -17,7 +17,7 @@ It takes the follwing Frontmatter keys:
 
 ## Usage
 
-First, add [`sidebarPlugin`](/reference/Plugin/sidebarPlugin) into your [VitePress config](https://vitepress.dev/reference/site-config#config-resolution). Then you are able to set `mode` to `manual`.
+First, add [`sidebarPlugin`](/reference/Plugin/sidebarPlugin) into your [VitePress Site Config](https://vitepress.dev/reference/site-config#config-resolution). Then you are able to set `mode` to `manual`.
 
 ```ts [config.ts]
 import { sidebarPlugin } from "@ogs-gmbh/vitepress-plugin-sidebar";
