@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.3...v1.1.0) (2026-04-21)
+
+
+### Features
+
+* add manual mode ([#6](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/issues/6)) ([cf50c90](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/commit/cf50c909398b450c039bda330429ce3f2d0e4f8b))
+
 ## [1.0.3](https://github.com/OGS-GmbH/vitepress-plugin-sidebar/compare/v1.0.2...v1.0.3) (2026-01-27)
 
 
