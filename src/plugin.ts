@@ -1,9 +1,9 @@
-import { pathExists } from "./fs";
-import { manualMode } from "./modes/custom";
-import { fsMode } from "./modes/fs";
-import { getRootPath } from "./path";
-import { Config, SidebarItem } from "./types";
 import process from "node:process";
+import { pathExists } from "./fs.js";
+import { fsMode } from "./modes/fs.js";
+import { manualMode } from "./modes/manual.js";
+import { getRootPath } from "./path.js";
+import type { Config, SidebarItem } from "./types.js";
 
 /**
  * Sidebar plugin for VitePress
@@ -14,11 +14,11 @@ import process from "node:process";
  * @since 1.0.0
  * @author Simon Kovtyk
  */
-function sidebarPlugin (config: Config): SidebarItem {
+function sidebarPlugin(config: Config): SidebarItem {
   const rootPath: string = getRootPath(config);
 
   if (!pathExists(rootPath)) {
-    process.stderr.write(`Error: The path "${ rootPath }" does not exist.\n`);
+    process.stderr.write(`Error: The path "${rootPath}" does not exist.\n`);
     /* eslint-disable-next-line @unicorn/no-process-exit */
     process.exit(1);
   }
@@ -27,27 +27,21 @@ function sidebarPlugin (config: Config): SidebarItem {
 
   switch (config.mode) {
     case "manual": {
-      sidebarItem = manualMode(
-        rootPath,
-        rootPath,
-        config
-      )?.item;
+      sidebarItem = manualMode(rootPath, rootPath, config)?.item;
       break;
     }
 
     case "fs":
     default: {
-      sidebarItem = fsMode(
-        rootPath,
-        rootPath,
-        config
-      );
+      sidebarItem = fsMode(rootPath, rootPath, config);
       break;
     }
   }
 
   if (!sidebarItem) {
-    process.stderr.write(`Error: The path "${ rootPath }" has not a valid type or contains no markdown files.\n`);
+    process.stderr.write(
+      `Error: The path "${rootPath}" has not a valid type or contains no markdown files.\n`
+    );
     /* eslint-disable-next-line @unicorn/no-process-exit */
     process.exit(1);
   }
@@ -59,6 +53,4 @@ function sidebarPlugin (config: Config): SidebarItem {
   return maybeTransformedSidebarItem;
 }
 
-export {
-  sidebarPlugin
-};
+export { sidebarPlugin };

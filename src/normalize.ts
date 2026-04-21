@@ -1,4 +1,4 @@
-import { Config, NormalizeTextFn } from "./types";
+import type { Config, NormalizeTextFn } from "./types.js";
 
 const defaultDirNamesNormalizer: NormalizeTextFn = (value: string): string => {
   let normalizedValue: string = value.trim().replaceAll("_", " ");
@@ -10,26 +10,22 @@ const defaultDirNamesNormalizer: NormalizeTextFn = (value: string): string => {
 };
 const defaultLinkNamesNormalizer: NormalizeTextFn = (value: string): string => value.trim();
 
-function normalizeDirNames (value: string, config: Config): string {
+function normalizeDirNames(value: string, config: Config): string {
   let normalizedValue: string = value;
 
-  if (config.normalizeDirNames)
-    normalizedValue = defaultDirNamesNormalizer(normalizedValue);
+  if (config.normalizeDirNames) normalizedValue = defaultDirNamesNormalizer(normalizedValue);
 
-  if (config.normalizeDirNamesFn)
-    normalizedValue = config.normalizeDirNamesFn(normalizedValue);
+  if (config.normalizeDirNamesFn) normalizedValue = config.normalizeDirNamesFn(normalizedValue);
 
   return normalizedValue;
 }
 
-function normalizeLinkNames (value: string, config: Config): string {
+function normalizeLinkNames(value: string, config: Config): string {
   let normalizedValue: string = value;
 
-  if (config.normalizeLinkNames)
-    normalizedValue = defaultDirNamesNormalizer(normalizedValue);
+  if (config.normalizeLinkNames) normalizedValue = defaultDirNamesNormalizer(normalizedValue);
 
-  if (config.normalizeLinkNamesFn)
-    normalizedValue = config.normalizeLinkNamesFn(normalizedValue);
+  if (config.normalizeLinkNamesFn) normalizedValue = config.normalizeLinkNamesFn(normalizedValue);
 
   return normalizedValue;
 }

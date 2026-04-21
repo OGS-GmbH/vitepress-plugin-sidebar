@@ -211,11 +211,4 @@ type SidebarItem = {
   target?: string;
 };
 
-export type {
-  Index,
-  Config,
-  TransformFn,
-  NormalizeTextFn,
-  Collapsible,
-  SidebarItem
-};
+export type { Index, Config, TransformFn, NormalizeTextFn, Collapsible, SidebarItem };

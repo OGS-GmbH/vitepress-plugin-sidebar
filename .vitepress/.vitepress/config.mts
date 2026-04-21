@@ -1,7 +1,7 @@
-import { sidebarPlugin } from "../../src/public-api";
 import { defineConfig } from "vitepress";
 import { groupIconMdPlugin, groupIconVitePlugin } from "vitepress-plugin-group-icons";
 import packageJson from "../../package.json";
+import { sidebarPlugin } from "../../src/public-api";
 
 const repositoryName = packageJson.name.split("/").pop();
 
@@ -74,12 +74,12 @@ export default defineConfig({
             link: "/guide/"
           },
           {
-            text: "Adapters",
-            link: "/guide/adapters"
+            text: "Filesystem Mode",
+            link: "/guide/filesystem-mode"
           },
           {
-            text: "Adapter API",
-            link: "/guide/adapter-api"
+            text: "Manual Mode",
+            link: "/guide/manual-mode"
           }
         ]
       },

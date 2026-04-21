@@ -3,17 +3,17 @@
   "version": "1.0.3",
   "description": "A VitePress plugin that automatically generates sidebar structures by statically analyzing the documentation file system and metadata.",
   "keywords": [
-    "vitepress",
-    "vitepress-plugin",
-    "sidebar",
     "autogenerate",
-    "navigation",
     "docs",
     "documentation",
+    "markdown",
+    "navigation",
     "plugin",
-    "vite",
+    "sidebar",
     "static-site",
-    "markdown"
+    "vite",
+    "vitepress",
+    "vitepress-plugin"
   ],
   "license": "MIT",
   "author": "OGS GmbH",
@@ -25,6 +25,10 @@
     }
   ],
   "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "directory": "dist/main"
+  },
   "scripts": {
     "ci:build:main:production": "tsdown",
     "ci:docs:extract:typedoc": "typedoc",
@@ -32,20 +36,22 @@
     "ci:pr:commitlint:main:commitlint": "commitlint",
     "ci:pr:lint:main:oxfmt": "oxfmt --check",
     "ci:pr:lint:main:oxlint": "oxlint",
-    "ci:test:main:vitest": "vitest run --coverage",
     "commit": "commit",
     "prepare": "husky",
     "vitepress": "bash ./.vitepress/scripts/pre-vitepress.sh && vitepress dev .vitepress",
     "vitepress:preview": "vitepress preview .vitepress"
   },
+  "dependencies": {
+    "gray-matter": "^4.0.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
     "@commitlint/prompt-cli": "^20",
-    "@ogs-gmbh/vitepress-theme": "^1.1.0",
     "@ogs-gmbh/oxlint-presets": "^1.0.5",
     "@ogs-gmbh/rolldown-plugin-assets": "^1.0.1",
     "@ogs-gmbh/rolldown-plugin-package-json": "^1.1.0",
+    "@ogs-gmbh/vitepress-theme": "^1.1.0",
     "@types/node": "^25.0.10",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
@@ -58,12 +64,5 @@
     "typescript": "^5.9.3",
     "vitepress": "^1.6.4",
     "vitepress-plugin-group-icons": "^1.7.1"
-  },
-  "sideEffects": false,
-  "publishConfig": {
-    "directory": "dist/main"
-  },
-  "dependencies": {
-    "gray-matter": "^4.0.3"
   }
 }
