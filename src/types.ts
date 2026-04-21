@@ -153,6 +153,14 @@ type Config = {
    * @author Simon Kovtyk
    */
   transformFn?: TransformFn;
+  /**
+   * Mode, that'll be used for transforming sidebar items
+   *
+   * @since 1.1.0
+   * @author Simon Kovtyk
+   * @default `fs`
+   */
+  mode?: "manual" | "fs";
 };
 
 /**
@@ -203,11 +211,4 @@ type SidebarItem = {
   target?: string;
 };
 
-export type {
-  Index,
-  Config,
-  TransformFn,
-  NormalizeTextFn,
-  Collapsible,
-  SidebarItem
-};
+export type { Index, Config, TransformFn, NormalizeTextFn, Collapsible, SidebarItem };

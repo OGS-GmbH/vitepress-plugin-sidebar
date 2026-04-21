@@ -7,10 +7,7 @@
   "entryPointStrategy": "expand",
   "excludePrivate": true,
   "excludeProtected": true,
-  "plugin": [
-    "typedoc-plugin-markdown",
-    "typedoc-plugin-frontmatter"
-  ],
+  "plugin": ["typedoc-plugin-markdown", "typedoc-plugin-frontmatter"],
   "frontmatterGlobals": {
     "prev": false,
     "next": false
